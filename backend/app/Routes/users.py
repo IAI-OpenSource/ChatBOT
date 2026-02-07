@@ -1,4 +1,3 @@
-#test pour puvoir faire fonctionner le main a modifier!!!! merci 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import session
 from jose import jwt, JWTError
@@ -8,13 +7,13 @@ import auth
 from database import get_db
 
 router = APIRouter(
-    prefix = "/users", #toutes les routes vont commencer par ce prefixe
-    tags = ["users"] # documentation auto
+    prefix = "/users", 
+    tags = ["users"]
       ) 
 
 @router.post("/register",reponse_model=schema.UserResponse)
 def register(user: schema.UserCreate, db: session = Depends(get_db)):
-    #ici nous allons vérifier si l'email existe ou pas 
+    
     db_user = db.query(models.User).filter(models.User.email == user.email).first()
     if db_user:
           raise HTTPException(status_code=400, detail="Nom d'utilisateur déjà pris")
@@ -51,9 +50,6 @@ def login(user: schema.UserLogin, db: session = Depends(get_db)):
 def get_current_user(token: str, db: session = Depends(get_db)):
     
    # Récupérer les informations de l'utilisateur connecté
-    
-    
-    
     try:
         payload = jwt.decode(token, auth.SECRET_KEY, algorithms=[auth.ALGORITHM])
         username = payload.get("sub")
@@ -65,4 +61,4 @@ def get_current_user(token: str, db: session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Token invalide")
     
     
-#return {"message": "Inscription réussie"} 
+return {"message": "Inscription réussie"} 

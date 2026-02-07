@@ -60,7 +60,7 @@ class ConversationList(BaseModel):
     title: str
     created_at: datetime
     updated_at: datetime
-    message_count: int  # Nombre de messages
+    message_count: int  
     
     class Config:
         from_attributes = True
