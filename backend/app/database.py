@@ -1,7 +1,9 @@
 #configuration de la connexion a postgreSql 
 import os 
 from dotenv import load_dotenv
-fom sqlmodel import creat_engine , Session 
+from sqlmodel import creat_engine , session
+from sqlalchemy.orm import sessionmaker
+
 
 load_dotenv()
 
