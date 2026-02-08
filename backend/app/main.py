@@ -4,8 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import SQLModel 
 
 from app import models
-from app.database import engine
-from app.routes import users, chat, conversations
+from .database import engine
+from .routes import users, chat, conversations
 
 # Création des tables
 SQLModel.metadata.create_all(bind=engine)
