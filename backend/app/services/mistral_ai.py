@@ -9,17 +9,22 @@ api_key = os.getenv("Cle_mistral_ai")
 client = Mistral(api_key = api_key)
 
 class MistralAIService:
-    async def generate_response(self, user_message : str):
-        
-
+    async def generate_response(self, user_message : str, history : list = None):
         try :
-        
             model = "mistral-small-latest"
-            chat_response = client.chat.complete(model = model,
-                                         messages = [
-                                             {"role": "system", "content": "Tu es un assistant utile et poli et tu t'appelles freeze."},
-                                             {"role": "user", "content": user_message},
-                                         ])
+            
+            messages = [{"role": "system", "content": "Tu es un assistant utile et poli et tu t'appelles freeze."}]
+            
+            if history:
+                for msg in history:
+                    messages.append({"role": msg.role, "content": msg.contenu})
+            
+            messages.append({"role": "user", "content": user_message})
+            
+            chat_response = client.chat.complete(
+                model = model,
+                messages = messages
+            )
     
             return chat_response.choices[0].message.content
         except Exception as e:

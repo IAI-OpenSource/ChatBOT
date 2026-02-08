@@ -4,12 +4,12 @@ from typing import Optional
 from datetime import datetime
 
 
-class User(SQLModel , table = True):
+class User(SQLModel, table=True):
     __tablename__ = "users"
-    id_user : Optional[int] = Field(default=None, primary_key =True)
-    email : str = Field(unique=True)
-    mot_de_passe : str
-    nom_user : str 
+    id_user: Optional[int] = Field(default=None, primary_key=True)
+    email: str = Field(unique=True, index=True)
+    mot_de_passe: str
+    nom_user: str = Field(unique=True, index=True) 
     
 class Conversation(SQLModel, table=True):
     __tablename__ = "conversations"
