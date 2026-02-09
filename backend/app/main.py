@@ -5,7 +5,7 @@ from sqlmodel import SQLModel
 
 from . import models
 from .database import engine
-from .routes import users, chat, conversations
+from app.routes import users, chat, conversations
 
 # Création des tables
 SQLModel.metadata.create_all(bind=engine)
