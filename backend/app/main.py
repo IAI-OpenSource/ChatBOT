@@ -3,9 +3,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import SQLModel 
 
-from . import models
-from .database import engine
-from app.routes import users, chat, conversations
+from app import models
+from app.database import engine
+from .routes import users, chat, conversations
 
 # Création des tables
 SQLModel.metadata.create_all(bind=engine)
@@ -17,10 +17,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
     allow_credentials=True,
-    # allow_methods=["*"],
-    # allow_headers=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
-
 
 # Routes
 app.include_router(users.router)
