@@ -3,8 +3,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import SQLModel 
 
-from app import models
-from app.database import engine
+from . import models
+from .database import engine
 from .routes import users, chat, conversations
 
 # Création des tables
