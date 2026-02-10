@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.orm import Session
+from sqlmodel import Session
 from datetime import datetime
 from .. import models, schema, auth
 from ..database import get_db
