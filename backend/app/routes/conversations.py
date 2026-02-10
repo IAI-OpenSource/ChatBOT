@@ -31,3 +31,30 @@ async def delete_conversation(id_conv: int, session: Session = Depends(get_db)):
     session.delete(conv)
     session.commit()
     return {"message": "Discussion supprimée avec succès"}
+
+## recuperer les conversations des utilisateurs 
+@router.get("/{id_conv}")
+async def get_conversation(id_conv: int, session: Session = Depends(get_db)):
+    conv = session.get(Conversation, id_conv)
+    if not conv:
+        raise HTTPException(status_code=404, detail="Conversation non trouvée")
+    
+    statement = select(Message).where(Message.id_conv == id_conv).order_by(Message.date_envoi)
+    messages = session.exec(statement).all()
+    
+   
+    formatted_messages = [
+        {
+            "id_ms": m.id_ms,
+            "role": m.role,
+            "content": m.contenu,
+            "date_envoi": m.date_envoi
+        }
+        for m in messages
+    ]
+    
+    return {
+        "id_conv": conv.id_conv,
+        "title": conv.title,
+        "messages": formatted_messages
+    }

@@ -11,27 +11,38 @@ router = APIRouter(
 
 @router.post("/register", response_model=schema.UserResponse)
 def register(user: schema.UserCreate, db: Session = Depends(get_db)):
+    print(f"DEBUG: Début inscription pour {user.username}")
     
     # Check email
+    print("DEBUG: Vérification email...")
     db_user_email = db.query(models.User).filter(models.User.email == user.email).first()
     if db_user_email:
+        print("DEBUG: Email déjà pris")
         raise HTTPException(status_code=400, detail="Email déjà enregistré")
     
     # Check username (nom_user)
+    print("DEBUG: Vérification username...")
     db_user_username = db.query(models.User).filter(models.User.nom_user == user.username).first()
     if db_user_username:
+        print("DEBUG: Username déjà pris")
         raise HTTPException(status_code=400, detail="Nom d'utilisateur déjà pris")
     
     # Créer le nouvel utilisateur
+    print("DEBUG: Hachage du mot de passe...")
     hashed_password = auth.get_password_hash(user.password)
     new_user = models.User(
         nom_user=user.username,
         email=user.email,
         mot_de_passe=hashed_password
     )
+    
+    print("DEBUG: Ajout à la session...")
     db.add(new_user)
+    print("DEBUG: Commit...")
     db.commit()
+    print("DEBUG: Refresh...")
     db.refresh(new_user)
+    print("DEBUG: Fin inscription réussie")
     
     
     return schema.UserResponse(
