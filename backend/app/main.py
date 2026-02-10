@@ -15,7 +15,7 @@ app = FastAPI(title="Chatbot API")
 # Setup CORS
 app.add_middleware(
     CORSMiddleware,
-    origins = [
+    allow_origins = [
         
         "http://localhost",
         "http://localhost:5173",
