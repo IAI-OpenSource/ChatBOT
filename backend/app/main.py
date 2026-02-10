@@ -7,16 +7,17 @@ from . import models
 from .database import engine
 from .routes import users, chat, conversations
 
-# Création des tables
+
 SQLModel.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Chatbot API")
 
-# Setup CORS
+# les CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost",
+        "http://localhost:8080",
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://localhost:5174",
