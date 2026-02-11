@@ -48,7 +48,11 @@ export interface ChatResponse {
 
 // Configuration Axios
 
-const API_BASE_URL = "https://le-chat-freeze.onrender.com";
+// Pour tester en local avec Docker
+const API_BASE_URL = "http://localhost:8000"; 
+
+// const API_BASE_URL = "https://le-chat-freeze.onrender.com";
+
 
 export const Api: AxiosInstance = axios.create({
     baseURL: API_BASE_URL,
