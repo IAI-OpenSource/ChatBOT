@@ -50,7 +50,7 @@ class ConversationResponse(BaseModel):
     title: str
     created_at: datetime
     updated_at: datetime
-    messages: List[MessageResponse] = []  # Liste des messages
+    messages: List[MessageResponse] = []  
     
     class Config:
         from_attributes = True

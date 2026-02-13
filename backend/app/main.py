@@ -19,6 +19,7 @@ app.add_middleware(
         "http://localhost",
         "http://localhost:8080",
         "https://chat-bot-zeta-liart.vercel.app",
+        "https://chat-bot-git-main-sabour-agoros-projects.vercel.app", # Vercel preview/branch URL might vary
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://localhost:5174",

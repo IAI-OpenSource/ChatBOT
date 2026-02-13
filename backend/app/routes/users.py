@@ -13,14 +13,14 @@ router = APIRouter(
 def register(user: schema.UserCreate, db: Session = Depends(get_db)):
     print(f"DEBUG: Début inscription pour {user.username}")
     
-    # Check email
+    # verificateur d'email
     print("DEBUG: Vérification email...")
     db_user_email = db.query(models.User).filter(models.User.email == user.email).first()
     if db_user_email:
         print("DEBUG: Email déjà pris")
         raise HTTPException(status_code=400, detail="Email déjà enregistré")
     
-    # Check username (nom_user)
+    # verificateur  nom_user
     print("DEBUG: Vérification username...")
     db_user_username = db.query(models.User).filter(models.User.nom_user == user.username).first()
     if db_user_username:
