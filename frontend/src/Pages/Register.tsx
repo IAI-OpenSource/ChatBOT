@@ -39,7 +39,7 @@ export default function Register() {
         setIsLoading(true);
         console.log("Tentative d'inscription avec :", { ...data, password: "***" });
         try {
-            // Correspondance exacte avec le backend : /users/register
+           
             console.log("Appel API POST /api/users/register...");
             await Api.post("/users/register", {
                 username: data.username,
@@ -68,7 +68,7 @@ export default function Register() {
         <div className="flex items-center justify-center min-h-screen w-full bg-black transition-all duration-500 ease-in-out">
             <div className="w-full max-w-6xl shadow-[0_0_50px_rgba(255,255,255,0.05)] rounded-2xl lg:rounded-3xl overflow-hidden flex flex-col lg:flex-row transform transition-all duration-500 ease-in-out lg:hover:scale-[1.01] bg-[#0a0a0a] border border-white/5">
 
-                {/* Partie Gauche l'image  */}
+                {/* Partie Gauche : image */}
                 <div className="hidden lg:block w-1/2 relative bg-black border-r border-white/5">
                     <img
                         src={logo}
@@ -78,20 +78,20 @@ export default function Register() {
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent mix-blend-overlay" />
                 </div>
 
-                {/* Partie Droite le formulaire */}
+                {/* Partie Droite le formulaire  */}
                 <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 lg:p-12">
                     <div className="w-full max-w-md space-y-6">
                         <div className="text-center space-y-2">
                             <h2 className="text-4xl font-extrabold tracking-tight text-white">
-                               Bienvenue sur  <span className="text-primary italic">le freeze chat </span>
+                               Bienvenue sur <span className="text-primary italic">le freeze chat</span>
                             </h2>
                             <p className="text-zinc-500 italic">
-                                667 a vie 
+                                667 TOUJOURS 
                             </p>
                         </div>
 
                         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-                           
+                          
                             <div className="space-y-1">
                                 <label className="text-sm font-semibold text-zinc-300" htmlFor="username">
                                     Nom d'utilisateur :
@@ -108,7 +108,7 @@ export default function Register() {
                                 )}
                             </div>
 
-                            {/* Email */}
+                           
                             <div className="space-y-1">
                                 <label className="text-sm font-semibold text-zinc-300" htmlFor="email">
                                     Email :
@@ -116,7 +116,7 @@ export default function Register() {
                                 <input
                                     id="email"
                                     type="email"
-                                    placeholder="mangemortsquad@gmail.com"
+                                    placeholder="exemple@easyschool.com"
                                     {...register("email")}
                                     className={`w-full border rounded-xl px-4 py-2.5 text-sm shadow-sm transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none bg-zinc-900 text-white placeholder:text-zinc-600 ${errors.email ? "border-destructive" : "border-zinc-800"
                                         }`}
@@ -126,6 +126,7 @@ export default function Register() {
                                 )}
                             </div>
 
+                          
                             <div className="space-y-1">
                                 <label className="text-sm font-semibold text-zinc-300" htmlFor="password">
                                     Mot de passe :
@@ -152,6 +153,7 @@ export default function Register() {
                                 )}
                             </div>
 
+                            
                             <div className="space-y-1">
                                 <label className="text-sm font-semibold text-zinc-300" htmlFor="confirmPassword">
                                     Confirmer le mot de passe :
@@ -169,7 +171,7 @@ export default function Register() {
                                 )}
                             </div>
 
-                           
+                            
                             <button
                                 type="submit"
                                 disabled={isLoading}
@@ -188,7 +190,7 @@ export default function Register() {
 
                         <div className="pt-2 text-center border-t border-white/5">
                             <p className="text-sm text-zinc-500">
-                               Vous êtes deja inscrit  ?{" "}
+                                Déjà inscrits ?{" "}
                                 <Link
                                     to="/login"
                                     className="font-bold text-white hover:text-primary transition-all duration-300 underline underline-offset-4"

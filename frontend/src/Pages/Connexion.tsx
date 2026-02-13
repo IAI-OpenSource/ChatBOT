@@ -45,7 +45,6 @@ export default function Connexion() {
 
             toast({
                 title: "Connexion réussie !",
-                description: "Bienvenue dans easySchool+.",
             });
 
             navigate("/dashboard");
@@ -64,7 +63,7 @@ export default function Connexion() {
         <div className="flex items-center justify-center min-h-screen w-full bg-black transition-all duration-500 ease-in-out">
             <div className="w-full max-w-6xl shadow-[0_0_50px_rgba(255,255,255,0.05)] rounded-2xl lg:rounded-3xl overflow-hidden flex flex-col lg:flex-row transform transition-all duration-500 ease-in-out lg:hover:scale-[1.01] bg-[#0a0a0a] border border-white/5">
 
-                {/* Partie Gauche l'image */}
+                {/* Partie Gauche  l'image */}
                 <div className="hidden lg:block w-1/2 relative bg-black border-r border-white/5">
                     <img
                         src={logo}
@@ -74,20 +73,20 @@ export default function Connexion() {
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent mix-blend-overlay" />
                 </div>
 
-                {/* Partie Droite le formulaire  */}
+                {/* Partie Droite le formulaire */}
                 <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 lg:p-16">
                     <div className="w-full max-w-md space-y-8">
                         <div className="text-center space-y-2">
                             <h2 className="text-4xl font-extrabold tracking-tight text-white">
-                                Bienvenue sur <span className="text-primary italic">easySchool+</span>
+                                Bienvenue sur <span className="text-primary italic">le freeze chat </span>
                             </h2>
                             <p className="text-zinc-500 italic">
                                 Veuillez vous connecter à votre compte
                             </p>
                         </div>
-
+                        {/* le champ de formulaire  */}
                         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-                            
+                           
                             <div className="space-y-2">
                                 <label className="text-sm font-semibold text-zinc-300" htmlFor="username">
                                     Nom d'utilisateur :
@@ -105,7 +104,7 @@ export default function Connexion() {
                                 )}
                             </div>
 
-                       
+                           
                             <div className="space-y-2">
                                 <label className="text-sm font-semibold text-zinc-300" htmlFor="password">
                                     Mot de passe :

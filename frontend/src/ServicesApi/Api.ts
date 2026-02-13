@@ -42,16 +42,17 @@ export interface Conversation {
 }
 
 export interface ChatResponse {
-    response: string; 
+    response: string;
 }
 
 
 // Configuration Axios
 
-// Pour tester en local avec Docker
-const API_BASE_URL = "http://localhost:8000"; 
+// Configuration Axios
 
-// const API_BASE_URL = "https://le-chat-freeze.onrender.com";
+// Utilise la variable d'environnement VITE_API_URL si elle existe
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
 
 
 export const Api: AxiosInstance = axios.create({
@@ -78,7 +79,7 @@ export const getErrorMessage = (error: unknown): string => {
     const axiosError = error as AxiosError;
     const backendError = (axiosError.response?.data as any)?.detail || (axiosError.response?.data as any)?.error;
 
- 
+
     if (Array.isArray(backendError)) {
         return backendError.map((err: any) => err.msg).join(", ");
     }

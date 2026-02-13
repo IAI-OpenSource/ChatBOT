@@ -12,7 +12,6 @@ function App() {
         <Route path="/login" element={<Connexion />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        {/* Redirection vers /login par défaut */}
         <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>
       <Toaster />
