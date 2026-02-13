@@ -16,7 +16,8 @@ app = FastAPI(title="Chatbot API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173",
-    "https://chat-bot-git-main-agoro-abdoul-sabour-s-projects.vercel.app"],
+    "https://chat-bot-git-main-agoro-abdoul-sabour-s-projects.vercel.app",
+    "https://chat-bot-zeta-liart.vercel.app/login"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
