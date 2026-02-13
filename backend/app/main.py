@@ -8,14 +8,15 @@ from .database import engine
 from .routes import users, chat, conversations
 
 
-SQLModel.metadata.create_all(bind=engine)
+#SQLModel.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Chatbot API")
 
 # les CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:5173",
+    "https://chat-bot-git-main-agoro-abdoul-sabour-s-projects.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
