@@ -13,8 +13,13 @@ from .routes import users, chat, conversations
 app = FastAPI(title="Chatbot API")
 
 # les CORS
+# les CORS
 app.add_middleware(
     CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://chat-bot-zeta-liart.vercel.app",
+    ],
     allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
