@@ -9,11 +9,11 @@ Ce projet combine la puissance de l'IA de **Mistral AI** avec une interface util
 ## 🎯 C'est quoi ? (Description)
 
 **freeze Chat** est une plateforme de messagerie intelligente qui permet aux utilisateurs de :
-- **Discuter avec "freeze"** : Un assistant IA personnalisé (basé sur Mistral AI), poli et expert en code.
+- **Discuter avec "freeze"** : Un assistant IA personnalisé (basé sur Mistral AI) expert en code.
 - **Gérer des conversations** : Chaque discussion est sauvegardée et peut être reprise à tout moment.
 - **Mémoire contextuelle** : L'IA se souvient des messages précédents au sein d'une même conversation pour des réponses cohérentes.
 - **Sécurité** : Un système complet d'authentification (Inscription/Connexion) avec protection des données.
-- **Interface Moderne** : Un dashboard inspiré des standards actuels, supportant les modes sombre et clair.
+- **Interface Moderne** : Un dashboard inspiré des models  actuels, supportant les modes sombre et clair.
 
 ---
 
@@ -62,6 +62,12 @@ docker-compose up --build
 - **Backend (API)** : accessible sur [http://localhost:8000](http://localhost:8000)
 - **Documentation API (Swagger)** : [http://localhost:8000/docs](http://localhost:8000/docs)
 
+
+### 4.Accès direct au chatbot via le lien : 
+
+ https://chat-bot-djfa.vercel.app/
+ 
+ **Assurer vous de vous inscrire avant de vous connecter!!!!!!
 ---
 
 ## 🏗️ Structure du Projet
@@ -94,4 +100,4 @@ ChatBOT/
 4. **Persistance** : Tous les messages (utilisateur et IA) sont sauvegardés en base de données.
 
 ---
-*Réalisé avec ❤️ pour le projet ChatBOT.*
+
